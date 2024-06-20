@@ -1,33 +1,4 @@
-import { useState } from "react";
-
-const initialGameBoard = [
-	[null, null, null],
-	[null, null, null],
-	[null, null, null],
-];
-
-export default function GameBoard({ onClickHandler, turns }) {
-	let gameBoard = initialGameBoard;
-
-	for (const turn of turns) {
-		const { square, player } = turn;
-		const { row, col } = square;
-		gameBoard[row][col] = player;
-	}
-
-	// const [gameBoard, setGameBoard] = useState(initialGameBoard);
-
-	// function handleOnClick(rowIndex, colIndex) {
-	// 	setGameBoard((prevGameBoard) => {
-	// 		const updatedGameBoard = [
-	// 			...prevGameBoard.map((innerArray) => [...innerArray]),
-	// 		];
-	// 		updatedGameBoard[rowIndex][colIndex] = activePlayerSymbol;
-	// 		return updatedGameBoard;
-	// 	});
-	// 	onClickHandler();
-	// }
-
+export default function GameBoard({ onClickHandler, gameBoard }) {
 	return (
 		<ol id='game-board'>
 			{gameBoard.map((row, rowIndex) => (
